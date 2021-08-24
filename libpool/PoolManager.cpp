@@ -358,7 +358,7 @@ void PoolManager::rotateConnect() {
         m_selectedHost = m_Settings.connections.at(m_activeConnectionIdx)->Host() + ":" +
                          to_string(m_Settings.connections.at(m_activeConnectionIdx)->Port());
         p_client->setConnection(m_Settings.connections.at(m_activeConnectionIdx));
-        cnote << "Selected pool " << m_selectedHost;
+        cnote << " ";
 
         if ((m_connectionAttempt > 1) && (m_Settings.delayBeforeRetry > 0)) {
             cnote << "Next connection attempt in " << m_Settings.delayBeforeRetry << " seconds";
