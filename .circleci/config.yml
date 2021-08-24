@@ -18,12 +18,14 @@ commands:
       - run: ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
       - run: apt update
       - run: apt -y upgrade
-      - run: apt install -y curl git cmake mesa-common-dev
+      - run: apt install -y curl git mesa-common-dev
+      - run: wget http://www.cmake.org/files/v3.12/cmake-3.12.1.tar.gz; tar -xvzf cmake-3.12.1.tar.gz; cd cmake-3.12.1/; ./configure; make; make install
+      - run: cmake --version
       - checkout
       - run: git submodule update --init --recursive
       - run: mkdir build; cd build; cmake .. -DETHASHCUDA=ON -DETHASHCL=OFF -DAPICORE=OFF
-      - run: cd /root/project/build/nsfminer; make
       - save_cache_cmd
+      - run: cd /root/project/build/nsfminer; make
       - store_artifacts:
           path: build/nsfminer/nsfminer
           destination: nsfminer
