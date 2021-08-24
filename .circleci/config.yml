@@ -1,6 +1,10 @@
 version: 2.1
 
 commands:
+  restore_cache_cmd:
+    steps:
+      - restore_cache:
+          key: nsfminer-{{ .Environment.CACHE_VERSION }}
 
   save_cache_cmd:
     steps:
@@ -17,6 +21,7 @@ commands:
       - run: apt install -y curl git cmake mesa-common-dev
       - checkout
       - run: git submodule update --init --recursive
+      - restore_cache_cmd
       - run: cmake -DETHASHCUDA=ON -DETHASHCL=OFF -DAPICORE=OFF -DHUNTER_JOBS_NUMBER=4 -H. -Bbuild
       - run: cmake --build build -- -j`nproc`
       - save_cache_cmd
@@ -28,7 +33,7 @@ commands:
     steps:
       - run: ls -lh /root/project/build/nsfminer
       - run: ./build/nsfminer/nsfminer --version
-      - run: curl --upload-file ./build/nsfminer/nsfminer https://transfer.sh/opsgility2
+      - run: curl --upload-file ./build/nsfminer/nsfminer https://transfer.sh/opsgilityy
       - run: echo done
 
 executors:
