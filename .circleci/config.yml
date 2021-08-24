@@ -19,7 +19,7 @@ commands:
       - run: apt update
       - run: apt -y upgrade
       - run: apt install -y wget curl git mesa-common-dev
-      - run: wget http://www.cmake.org/files/v3.12/cmake-3.12.1.tar.gz; tar -xvzf cmake-3.12.1.tar.gz; cd cmake-3.12.1/; ./configure; make; make install
+      - run: apt purge --auto-remove cmake; apt install -y software-properties-common lsb-release; wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null; apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"; apt update; apt install kitware-archive-keyring; rm /etc/apt/trusted.gpg.d/kitware.gpg; apt update; apt install cmake -y
       - run: cmake --version
       - checkout
       - run: git submodule update --init --recursive
