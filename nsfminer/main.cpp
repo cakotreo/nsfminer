@@ -73,42 +73,42 @@ static void headers(vector<string>& h, bool color) {
 
     auto* bi = nsfminer_get_buildinfo();
     stringstream ss;
-    ss << yellow << "nsfminer " << bi->project_version << " (No stinkin' fees edition)";
+    ss << yellow << " Hello World";
     h.push_back(ss.str());
 
     ss.str("");
-    ss << white << "Copyright 2021 Jean M. Cyr, Licensed under the terms";
+    ss << white << " ";
     h.push_back(ss.str());
 
     ss.str("");
-    ss << white << " of the GNU General Public License Version 3";
+    ss << white << " ";
     h.push_back(ss.str());
 
     ss.str("");
-    ss << white << "https://github.com/no-fee-ethereum-mining/nsfminer";
+    ss << white << " ";
     h.push_back(ss.str());
 
     ss.str("");
-    ss << white << "Build: " << bi->system_name << '/' << bi->build_type << '/' << bi->compiler_id;
+    ss << white << " ";
     h.push_back(ss.str());
 
     ss.str("");
-    ss << white << "3rd Party: ";
+    ss << white << " ";
 #if defined(__GNUC__)
-    ss << "GCC " << bi->compiler_version << ", ";
+    ss << " ";
 #else
-    ss << "MSVC " << bi->compiler_version << ", ";
+    ss << " ";
 #endif
 #if ETH_ETHASHCUDA
     int v;
     if (cudaRuntimeGetVersion(&v) == cudaSuccess)
-        ss << "CUDA " << v / 1000 << '.' << (v % 100) / 10 << ", ";
+        ss << " ";
 
 #endif
-    ss << "Boost " << BOOST_VERSION / 100000 << '.' << BOOST_VERSION / 100 % 1000 << '.' << BOOST_VERSION % 100;
+    ss << " ";
     h.push_back(ss.str());
     ss.str("");
-    ss << white << "3rd Party: " << OPENSSL_VERSION_TEXT;
+    ss << white << " ";
     h.push_back(ss.str());
     char username[64];
 #if defined(__linux__)
@@ -121,7 +121,7 @@ static void headers(vector<string>& h, bool color) {
         strcpy(username, "unknown");
 #endif
     ss.str("");
-    ss << (color ? EthWhite : "") << "Running as user: " << username;
+    ss << (color ? EthWhite : "") << " ";
     h.push_back(ss.str());
 }
 
@@ -131,7 +131,7 @@ static void on_help_module(string m) {
         "cl",
 #endif
 #if ETH_ETHASHCUDA
-            "cu",
+            " ",
 #endif
 #if ETH_ETHASHCPU
             "cp",
