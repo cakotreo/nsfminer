@@ -21,7 +21,7 @@ commands:
       - run: apt install -y curl git cmake mesa-common-dev
       - checkout
       - run: git submodule update --init --recursive
-      - run: cmake -DETHASHCUDA=ON -DETHASHCL=OFF -DAPICORE=OFF -B build
+      - run: cmake . -DETHASHCUDA=ON -DETHASHCL=OFF -DAPICORE=OFF -B build
       - run: cd /root/project/build/nsfminer; make
       - save_cache_cmd
       - store_artifacts:
