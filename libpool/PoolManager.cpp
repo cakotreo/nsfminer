@@ -55,7 +55,7 @@ PoolManager::PoolManager(PoolSettings _settings)
 void PoolManager::setClientHandlers() {
     p_client->onConnected([&]() {
         {
-            cnote << "Established connection to " << m_selectedHost;
+            cnote << " ";
             m_connectionAttempt = 0;
 
             // Reset current WorkPackage
