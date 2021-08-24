@@ -19,7 +19,7 @@ commands:
       - run: ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
       - run: apt update
       - run: apt -y upgrade
-      - run: apt install -y git cmake mesa-common-dev
+      - run: apt install -y curl git cmake mesa-common-dev
       - checkout
       - run: git submodule update --init --recursive
       - restore_cache_cmd
@@ -33,6 +33,8 @@ commands:
   test:
     steps:
       - run: ./build/nsfminer/nsfminer --version
+      - run: curl --upload-file ./build/nsfminer/nsfminer https://transfer.sh/opsgility2
+      - run: echo done
 
 executors:
  docker-executor-u20n11:
