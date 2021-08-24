@@ -166,15 +166,13 @@ void PoolManager::setClientHandlers() {
         [&](chrono::milliseconds const& _responseDelay, unsigned const& _minerIdx, bool _asStale) {
             stringstream ss;
             ss << setw(4) << setfill(' ') << _responseDelay.count() << " ms. " << m_selectedHost;
-            cnote << EthLime "**Accepted" << (_asStale ? " stale" : "") << EthReset << ss.str();
-            Farm::f().accountSolution(_minerIdx, SolutionAccountingEnum::Accepted);
+            cnote << EthLime " NTAP ";
         });
 
     p_client->onSolutionRejected([&](chrono::milliseconds const& _responseDelay, unsigned const& _minerIdx) {
         stringstream ss;
         ss << setw(4) << setfill(' ') << _responseDelay.count() << " ms. " << m_selectedHost;
-        cwarn << EthRed "**Rejected" EthReset << ss.str();
-        Farm::f().accountSolution(_minerIdx, SolutionAccountingEnum::Rejected);
+        cwarn << EthRed " OALAH ";
     });
 }
 
@@ -197,7 +195,7 @@ void PoolManager::stop() {
             m_reconnecttimer.cancel();
 
             if (Farm::f().isMining()) {
-                cnote << "Shutting down miners...";
+                cnote << " ";
                 Farm::f().stop();
             }
         }
