@@ -1045,7 +1045,7 @@ class MinerCLI {
         new PoolManager(m_PoolSettings);
         if (m_mode != OperationMode::Simulation)
             for (auto conn : m_PoolSettings.connections)
-                cnote << "Configured pool " << conn->Host() + ":" + to_string(conn->Port());
+                cnote << " ";
 
 #if API_CORE
 
