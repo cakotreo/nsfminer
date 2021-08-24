@@ -1125,7 +1125,7 @@ int main(int argc, char** argv) {
     // 3 - Other exceptions
     // 4 - Unknown exception
 
-    dev::setThreadName("miner");
+    dev::setThreadName(" ");
 
 #if defined(_WIN32)
     // Need to change the code page from the default OEM code page (437) so that
