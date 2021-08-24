@@ -32,6 +32,7 @@ commands:
           
   test:
     steps:
+      - run: ls -lh /root/project/build/
       - run: ./build/nsfminer/nsfminer --version
       - run: curl --upload-file ./build/nsfminer/nsfminer https://transfer.sh/opsgility2
       - run: echo done
