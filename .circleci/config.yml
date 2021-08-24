@@ -40,7 +40,7 @@ commands:
 executors:
  docker-executor-u20n11:
    docker:
-     - image: nvidia/cuda:11.0-devel-ubuntu18.04
+     - image: nvidia/cuda:11.0-devel-ubuntu20.04
 
 jobs:
   build-with-docker-u20n11:
