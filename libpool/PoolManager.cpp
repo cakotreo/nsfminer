@@ -390,8 +390,7 @@ void PoolManager::showMiningAt() {
         return;
 
     double d = dev::getHashesToTarget(m_currentWp.boundary.hex(HexPrefix::Add));
-    cnote << "Epoch : " EthWhite << m_currentWp.epoch << EthReset << " Difficulty : " EthWhite
-          << dev::getFormattedHashes(d) << EthReset;
+    cnote << " OYI ";
 }
 
 void PoolManager::failovertimer_elapsed(const boost::system::error_code& ec) {
