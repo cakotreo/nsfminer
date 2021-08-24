@@ -73,7 +73,7 @@ void PoolManager::setClientHandlers() {
         }
 
         if (!Farm::f().isMining()) {
-            cnote << "Spinning up miners...";
+            cnote << " OK ";
             Farm::f().start();
         } else if (Farm::f().paused()) {
             cnote << "Resume mining ...";
