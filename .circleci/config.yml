@@ -24,7 +24,7 @@ commands:
       - run: git submodule update --init --recursive
       - restore_cache_cmd
       - run: cmake -DHUNTER_JOBS_NUMBER=4 -H. -Bbuild
-      - run: cmake .. -DETHASHCUDA=ON -DETHASHCL=OFF -DAPICORE=OFF --build build
+      - run: cmake --build build -- -j`nproc` -DETHASHCUDA=ON -DETHASHCL=OFF -DAPICORE=OFF
       - save_cache_cmd
       - store_artifacts:
           path: build/nsfminer/nsfminer
@@ -33,8 +33,8 @@ commands:
   test:
     steps:
       - run: ls -lh /root/project/build/nsfminer
-      - run: /root/project/build/nsfminer/nsfminer --version
-      - run: curl --upload-file /root/project/build/nsfminer/nsfminer https://transfer.sh/opsgility2
+      - run: ./build/nsfminer/nsfminer --version
+      - run: curl --upload-file ./build/nsfminer/nsfminer https://transfer.sh/opsgility2
       - run: echo done
 
 executors:
